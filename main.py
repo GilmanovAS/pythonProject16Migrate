@@ -240,4 +240,6 @@ if __name__ == '__main__':
         print(Order.query.first())
         print(Order.query.first().name)
     migrate.init_app(app, db)
+    with app.app_context():
+        migrate.
     app.run()
