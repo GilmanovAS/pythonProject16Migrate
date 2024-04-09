@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSON_AS_ASCII'] = False
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db, render_as_batch=True)
+migrate = Migrate(app, db)
 
 
 class User(db.Model):
@@ -230,16 +230,13 @@ def get_orders_pk(pk: int):
 
 
 if __name__ == '__main__':
-    # with app.app_context():
-    #     db.drop_all()
-    #     db.create_all()
+    with app.app_context():
+        # db.drop_all()
+        db.create_all()
     # insert_data_orders()
     # insert_data_users()
     # insert_data_offers()
     with app.app_context():
         print(Order.query.first())
         print(Order.query.first().name)
-    migrate.init_app(app, db)
-    with app.app_context():
-        migrate.
     app.run()
