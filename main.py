@@ -230,9 +230,9 @@ def get_orders_pk(pk: int):
 
 
 if __name__ == '__main__':
-    with app.app_context():
-        # db.drop_all()
-        db.create_all()
+    # with app.app_context():
+    #     db.drop_all()
+    #     db.create_all()
     # insert_data_orders()
     # insert_data_users()
     # insert_data_offers()
